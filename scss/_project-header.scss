@@ -1,0 +1,147 @@
+
+.project-header {
+    height: 284px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+
+    .mc-logo {
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    h2 {
+        margin-top: 47px;
+        font-size: 1.3rem;
+    }
+
+    p {
+        margin-top: 20px;
+        font-size: 0.9rem;
+        line-height: 1.5;
+        opacity: 0.8;
+    }
+
+    .bookmark-wrapper {
+        margin-top: 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .btn-big {
+            height: 56px;
+            width: 215px;
+            font-weight: 600;
+            // flex-shrink: 0;
+        }
+
+        .bookmark-icon {
+            height: 56px;
+
+
+            .btn-bookmark {
+                height: 56px;
+                width: 56px;
+                border-radius: 25px;
+                background-color: $moderate-cyan;
+                color: black;
+                border: none;
+                background-color: rgb(250, 250, 250);
+                font-family: inherit;
+                font-size: inherit;
+                position: relative;
+                cursor: pointer;
+                // z-index: -1;
+
+                &[data-pressed='true'] {
+                    
+                    &::before {
+                        background-image: url(../images/icon-bookmarked.svg);
+                    }
+                }
+
+                .bookmark-text {
+                    display: none;
+                }
+
+                &::before {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 56px;
+                    height: 56px;
+                    background-image: url(../images/icon-bookmark.svg);
+                    z-index: 3;
+                    // filter: invert(22%) sepia(100%) saturate(363%) hue-rotate(127deg) brightness(95%) contrast(92%);
+                    // filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(17deg) brightness(104%) contrast(104%);
+                    // filter: brightness(0) invert(1)
+                }
+            }
+        }
+
+    }
+}
+
+@media screen and (min-width:768px) {
+
+    .project-header {
+        height: 269px;
+
+        h2 {
+            margin-top: 50px;
+            font-size: 1.8rem;
+        }
+    
+        p {
+            letter-spacing: 0.8px;
+        }
+
+        .bookmark-wrapper {
+            margin-top: 34px;
+
+            .btn-big {
+                width: 204px;
+            }
+
+            .bookmark-icon {
+                // width: 200px;
+                
+                .btn-bookmark {
+                    width: 171px;
+                    font-weight: 600;
+                    text-align: right;
+                    padding-right: 20px;
+
+                    .bookmark-text {
+                        display: inline;
+
+                        &::before {
+                            content: 'Bookmark';
+                            color: rgba(0,0,0,0.5);
+                            font-size: 0.9rem;
+                        }
+                    }
+
+                    &[data-pressed='true'] {
+
+                        .bookmark-text {
+
+                            &::before {
+                                content: 'Bookmarked';
+                                // color: $moderate-cyan;
+                                color: $dark-cyan;
+                                font-weight: 600;
+                                filter: brightness(110%)
+                            }
+                        }
+
+                    }
+                }
+            }
+        }
+    }
+
+}

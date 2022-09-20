@@ -1,0 +1,100 @@
+
+.inner-cards-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+
+    .inner-card {
+        padding: 22px 24px;
+        border: 1px solid rgba(0, 0, 0, 0.3);
+        border-radius: 7px;
+
+        h4 {
+            font-size: 0.89rem;
+            margin-bottom: 11px;
+        }
+
+        .pledge {
+            font-size: 0.89rem;
+            font-weight: 600;
+            color: $moderate-cyan;
+            margin-bottom: 20px;
+        }
+
+        p {
+            line-height: 1.67;
+            margin-bottom: 23px;
+        }
+
+        .stock {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            margin-bottom: 24px;
+
+            h2 {
+                font-size: 2rem;
+            }
+
+            .left {
+                margin-left: 10px;
+                opacity: 0.7;
+                // align-self: flex-end;
+            }
+        }
+    }
+
+    .inner-card.out-of-stock {
+        opacity: 0.5;
+
+        .btn-primary {
+            background-color: rgba(0, 0, 0, 0.6);
+        }
+    }
+}
+
+@media screen and (min-width: 768px) {
+    
+    .inner-cards-wrapper {
+
+        .inner-card {
+            padding: 22px 34px 29px 34px;
+
+            .pledge-wrapper {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                margin-top: 15px;
+                margin-bottom: 25px;
+
+                h4 {
+                    font-size: 1.12rem;
+                    margin-bottom: 0px;
+                }
+
+                .pledge {
+                    font-size: 0.92rem;
+                    margin-bottom: 0px;
+                }
+
+            }
+
+            p {
+                line-height: 1.8;
+                margin-bottom: 26px;
+            }
+
+            .stock-wrapper {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+
+                .stock {
+                    margin-bottom: 0;
+                }
+                
+            }
+
+        }
+    }
+}

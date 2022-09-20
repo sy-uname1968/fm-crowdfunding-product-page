@@ -1,0 +1,230 @@
+
+
+.option-card {
+    border: 1px solid rgba(0,0,0,0.5);
+    border-radius: 7px;
+    padding: 20px 23px 22px 23px;
+
+    &.out-of-stock {
+        opacity: 0.5;
+    }
+
+    .radio {
+        display: none;
+        &:checked + .option-wrapper {
+
+            .radio-label::before {
+                display: block;
+                content: '';
+                width: 100%;
+                height: 100%;
+                border-radius: 100%;
+                background-color: $moderate-cyan;
+                border: 5px solid white;
+                outline: 1px solid rgba(0,0,0,0.5);
+            }
+        }
+
+        &:checked ~ .action-block {
+            // transform: scale(1, 1);
+            // transform-origin: top;
+            display: block;
+        }
+
+        &:checked ~ .plank {
+            display: none;
+        }
+    }
+
+    .option-wrapper {
+        display: flex;
+        align-items: center;
+        height: 50px;
+        margin-bottom: 23px;
+
+        .radio-label {
+            width: 23px;
+            height: 23px;
+            border-radius: 100%;
+            background-color: white;
+            border: 1px solid rgba(0,0,0,0.5);
+        }
+
+        .option-description {
+            margin-left: 15px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            // height: 44px;
+
+            h4 {
+                font-size: 0.89rem;
+            }
+
+            .pledge {
+                font-size: 0.89rem;
+                font-weight: 600;
+                color: $moderate-cyan;
+            }
+        }
+    }
+
+    p {
+        line-height: 1.6;
+        color: rgba(0,0,0,0.7);
+        margin-bottom: 0;
+    }
+
+    .stock {
+        display: flex;
+        align-items: center;
+        margin-top: 25px;
+
+        h2 {
+            margin-bottom: 0;
+        }
+
+        .left {
+            margin-left: 7px;
+        }
+    }
+
+    .plank {
+        height: 9px;
+    }
+
+    .action-block {
+        // transform: scale(1, 0);
+        display: none;
+        padding: 45px 0px 0px 0px;
+        position: relative;
+        // border-top: 2px solid blue;
+        &::before {
+            content: '';
+            position: absolute;
+            height: 1px;
+            top: 18px;
+            right: -23px;
+            left: -23px;
+            background-color: rgba(0,0,0,0.5);
+        }
+
+        .action-heading {
+            text-align: center;
+            font-size: 0.85rem;
+            margin-bottom: 26px;
+            color: rgba(0,0,0,0.7);
+        }
+
+        .action-buttons-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            // width: 100%;
+
+            .btn-pledge {
+                height: 49px;
+                width: 100px;
+                border-radius: 25px;
+                border: 1px solid rgba(0,0,0,0.7);
+                background-color: white;
+                font-weight: 600;
+
+                span {
+                    position: relative;
+                    // font-weight: 600;
+                    &::after {
+                        position: absolute;
+                        content: '$';
+                        left: -15px;
+                        color: rgba(0,0,0,0.5);
+                    }
+                }
+            }
+
+            .pledge-action {
+                width: 117px;
+                height: 49px;
+                border-radius: 25px;
+                font-size: 0.9rem;
+                font-weight:500;
+                color: rgba(255,255,255,0.9);
+            }
+        }
+    
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .option-card {
+        padding: 33px 25px 33px 25px;
+        position: relative;
+
+        .radio {
+            &:checked ~ .action-block {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+        }
+
+        .option-wrapper {
+            display: flex;
+            align-items: center;
+            height: auto;
+            margin-bottom: 17px;
+
+            .option-description {
+
+                margin-left: 25px;
+                flex-direction: row;
+                justify-content: center;
+                align-items: flex-start;
+                // font-size: 1.15rem;
+
+                h4 {
+                    font-size: 1rem;
+                }
+    
+                .pledge {
+                    font-size: 1rem;
+                    margin-left: 18px;
+                }
+            }
+        }
+
+        p {
+            line-height: 1.6;
+            margin-bottom: 0;
+            margin-left: 50px;
+            font-size: 0.95rem;
+        }
+
+        .stock {
+            position: absolute;
+            top: 4px;
+            right: 25px;
+
+            h2 {
+                font-size: 1.2rem;
+            }
+        }
+
+        .plank {
+            display: none;
+        }
+
+        .action-block {
+            padding: 35px 0px 0px 0px;
+            .action-heading {
+                font-size: 0.95rem;
+                margin-bottom: 0;
+            }
+
+            .action-buttons-wrapper {
+                gap: 20px;
+            }
+        }
+    }
+}

@@ -1,0 +1,106 @@
+
+.hero {
+    background-image: url(../images/image-hero-mobile.jpg);
+    background-repeat: no-repeat;
+    // background-size: contain;
+    background-size: 100%;
+    // opacity: 0.5;
+    height: 300px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+    padding: 33px 25px;
+    // display: none;
+
+    .logo {
+        object-fit: none;
+    }
+
+    nav {
+        transform: scale(1, 0);
+        position: fixed;
+        inset: 0;
+        background-color: rgba(0, 0, 0, 0.3);
+        z-index: 2;
+
+        ul {
+            position: absolute;
+            width: calc(100% - 48px);
+            height: 212px;
+            top: 87px;
+            left: 50%;
+            background-color: rgba(255, 255, 255, 1);
+            border-radius: 10px;
+            transform: translateX(-50%);
+            padding: 28px 23px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+            li {
+                font-weight: 600;
+            }
+        }
+
+        &[data-menu-opened="true"] {
+            // transform: translateX(-50%) scale(1, 1);
+            transform: scale(1, 1);
+            transform-origin: top;
+            transition: transform 300ms ease-in;
+        }
+
+        &[data-menu-opened="true"] + .mobile-icon-wrapper {
+
+            .close-icon {
+                display: block;
+            }
+
+            .hamburger-icon {
+                display: none;
+            }
+        }
+    }
+
+    .mobile-icon-wrapper {
+        z-index: 3;
+
+        .close-icon {
+            display: none;
+        }
+    }
+}
+
+
+@media screen and (min-width:768px) {
+    
+    .hero {
+        background-image: url(../images/image-hero-desktop.jpg);
+        background-size: 100% 100%;
+        min-height: 400px;
+        // height: auto;
+        padding: 50px clamp(50px, 100vw - 1440px + 165px, 165px);
+
+        nav {
+            all: unset;
+            // display: block;
+            // position: relative;
+
+            ul {
+                all: unset;
+                display: flex;
+                gap: 24px;
+                list-style: none;
+
+                li {
+                    font-size: 0.9rem;
+                    color: white;
+                }
+            }
+        }
+
+        .mobile-icon-wrapper {
+            display: none;
+        }
+    }
+}
